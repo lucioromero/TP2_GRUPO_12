@@ -1,20 +1,32 @@
 package Ejercicio3;
 
-public class Oficina implements IEdificio {
-	private double ancho;
+public class Oficina {
 	private double largo;
-	private int cantidadOficinas;
+	private double ancho;
 	
-	public Oficina(double ancho, double largo, int cantidadOficinas) {
-		this.ancho = ancho;
+	public Oficina(double ancho, double largo) {
 		this.largo = largo;
-		this.cantidadOficinas = cantidadOficinas;
+		this.ancho = ancho;
 	}
-	public int getCantidadOficinas() {
-		return cantidadOficinas;
+	
+	public double getLargo() {
+		return largo;
 	}
-	@Override
-	public double getSuperficieEdificio() {
-		return this.ancho * this.largo;
+
+	public void setLargo(double largo) {
+		this.largo = largo;
 	}
+
+	public double getAncho() {
+		return ancho;
+	}
+
+	public void setAncho(double ancho) {
+		this.ancho = ancho;
+	}
+	
+	
+	
+	
+	
 }
