@@ -5,7 +5,7 @@ public class MainEjercicio3 {
 		System.out.println("Hola Mundo");	
 		
 		Polideportivo poli = new Polideportivo("Pablo", 100, 50);
-		EdificioOficinas ofi = new EdificioOficinas(50, 50, 20);
+		Oficina ofi = new Oficina(50, 50, 20);
 		
 		System.out.println(poli.getSuperficieEdificio());
 		System.out.println(poli.getTipoDeInstalacion());

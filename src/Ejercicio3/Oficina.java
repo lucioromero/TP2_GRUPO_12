@@ -1,11 +1,11 @@
 package Ejercicio3;
 
-public class EdificioOficinas implements IEdificio {
+public class Oficina implements IEdificio {
 	private double ancho;
 	private double largo;
 	private int cantidadOficinas;
 	
-	public EdificioOficinas(double ancho, double largo, int cantidadOficinas) {
+	public Oficina(double ancho, double largo, int cantidadOficinas) {
 		this.ancho = ancho;
 		this.largo = largo;
 		this.cantidadOficinas = cantidadOficinas;
