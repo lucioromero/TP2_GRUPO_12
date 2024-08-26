@@ -1,24 +1,43 @@
 package Ejercicio3;
 
 import java.util.ArrayList;
+import java.util.ListIterator;
 
 public class MainEjercicio3 {
 	public static void main(String[] args) {
-		System.out.println("Hola Mundo");	
 		
-		Polideportivo poli = new Polideportivo("Pablo", 100, 50);
+		ArrayList<IEdificio> edificios = new ArrayList<IEdificio>();
+		ArrayList<Oficina> oficinas = new ArrayList<Oficina>();
 		
-		ArrayList<Oficina> oficinasEdificio1 = new ArrayList<Oficina>();
-		oficinasEdificio1.add(new Oficina(15, 15));
-		oficinasEdificio1.add(new Oficina(5, 5));
-		oficinasEdificio1.add(new Oficina(10, 10));
+		for(int i = 1; i <= 3; i++){
+			edificios.add(new Polideportivo("Pablo " + i, 10 * i, 5 * i));
+		}
 		
-		EdificioOficinas edificioOficinas1 = new EdificioOficinas(oficinasEdificio1);
+		for(int i = 1; i <= 2; i++){
+			oficinas.add(new Oficina(i * 5, i * 10));
+		}
+		
+		edificios.add(new EdificioOficinas(oficinas));
 
-		System.out.println(poli.getSuperficieEdificio());
-		System.out.println(poli.getTipoDeInstalacion());
-		
-		System.out.println(edificioOficinas1.getSuperficieEdificio());
-		System.out.println(edificioOficinas1.getCantidadOficinas());
+		ListIterator<IEdificio> it = edificios.listIterator();
+
+		while(it.hasNext()){
+			IEdificio edificio = it.next();
+            
+			if(edificio instanceof Polideportivo) {
+                Polideportivo polideportivo = (Polideportivo) edificio;
+                System.out.println(polideportivo.getTipoDeInstalacion());
+                System.out.println("Superficie: " + polideportivo.getSuperficieEdificio() + " m2");
+				System.out.println("*********************");
+            }
+            
+            if(edificio instanceof EdificioOficinas) {
+                EdificioOficinas edificioOficinas = (EdificioOficinas) edificio;
+                System.out.println("Edificio de Oficinas");
+                System.out.println("Cantidad de oficinas: " + edificioOficinas.getCantidadOficinas());
+                System.out.println("Superficie total de las oficinas: " + edificioOficinas.getSuperficieEdificio() + " m2");
+				System.out.println("*********************");
+            }
+		}
 	}
 }
