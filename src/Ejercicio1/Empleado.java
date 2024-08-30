@@ -1,6 +1,8 @@
 package Ejercicio1;
 
-public class Empleado {
+import java.util.Objects;
+
+public class Empleado implements Comparable<Empleado>{
 	
 	private static int IdEmpleados = 1000;
 	private final int ID;
@@ -20,7 +22,7 @@ public class Empleado {
 	}
 
 	public static void devuelveProximoID() {
-	  	System.out.println("El próximo ID será el " + IdEmpleados);	
+	  	System.out.println("El prï¿½ximo ID serï¿½ el " + IdEmpleados);	
 	}
 
 	public String getNombre() {
@@ -39,8 +41,40 @@ public class Empleado {
 		this.edad = edad;
 	}
 	
+	public int getID() {
+		return ID;
+	}
+
 	@Override
 	public String toString(){
 		return "Empleado " +nombre + ", Edad: " +edad + ", Legajo: " +ID;
 	}
+
+	@Override
+	public int compareTo(Empleado o) {
+		if(edad > o.getEdad()) {
+			return 1;
+		}
+		return -1;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(ID, edad, nombre);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Empleado other = (Empleado) obj;
+		return ID == other.ID && edad == other.edad && Objects.equals(nombre, other.nombre);
+	}
+
+
+
 }
